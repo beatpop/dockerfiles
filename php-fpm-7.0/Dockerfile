@@ -47,5 +47,7 @@ COPY conf.d/opcache.ini /usr/local/etc/php/conf.d/
 ENV REFRESHED_COMPOSER_AT 2016120123_0942
 COPY composer.phar /usr/local/bin/composer
 RUN composer config -g repo.packagist composer https://packagist.phpcomposer.com
+# 更改社区的源（上面的由于需要验证用户密码）
+# RUN composer config -g repo.packagist composer https://packagist.laravel-china.org
 
 CMD ["php-fpm"]
