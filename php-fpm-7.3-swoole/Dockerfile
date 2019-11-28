@@ -7,7 +7,7 @@ ADD sources.list /etc/apt/
 
 # Install modules
 RUN buildDeps01="libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng-dev libicu-dev libxslt-dev libxml2-dev " \ 
-    && buildDeps02="gcc g++ libzip-dev unzip wget libpcre3 libpcre3-dev ruby zlib1g zlib1g.dev " \
+    && buildDeps02="gcc g++ libzip-dev unzip wget libpcre3 libpcre3-dev ruby zlib1g zlib1g.dev libmemcached-dev " \
     && apt-get update && apt-get install -y $buildDeps01 $buildDeps02 \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
